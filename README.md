@@ -1,2 +1,7 @@
 # Project_ML
-End to end machine learning project with CICD Pipeline
+This Repository contains End to end machine learning project with CICD Pipeline.
+
+Creating conda eviroment
+```
+conda create -p venv python==3.7  -y
+```
