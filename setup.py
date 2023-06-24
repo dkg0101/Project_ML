@@ -6,10 +6,10 @@ VERSION ='0.0.3'
 AUTHOR = 'Dhananjay Gurav'
 DESCRIPTION = 'First end to end ml project with deployments'
 PACKAGES = ["housing"]
-REQUIREMENT_FILE_NAME = "requirements.txt"
+REQUIREMENT_FILE_NAME = "/config/workspace/requirements.txt"
 
 
-def get_requirements_list() -> List[str]:
+def get_requirements_list():
     """
     Description: This function is going to return list of requirement
     mention in requirements.txt file 
@@ -39,5 +39,4 @@ setup(
 if __name__ == "__main__":
     requirements_list = get_requirements_list()
 
-    for library in requirements_list:
-        print(library)
+  
