@@ -5,3 +5,8 @@ Creating conda eviroment
 ```
 conda create -p venv python==3.7  -y
 ```
+
+installing setup.py
+```
+python setup.py
+```

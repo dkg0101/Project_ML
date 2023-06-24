@@ -1,8 +1,8 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 from typing import List 
 
 PROJECT_NAME='housing-predictor'
-VERSION ='0.0.1'
+VERSION ='0.0.3'
 AUTHOR = 'Dhananjay Gurav'
 DESCRIPTION = 'First end to end ml project with deployments'
 PACKAGES = ["housing"]
@@ -16,21 +16,21 @@ def get_requirements_list() -> List[str]:
     return this function is going to return a list which  contain name 
     of libraries mentioned in requirements.txt file
     """
+    
     with open (REQUIREMENT_FILE_NAME,"r") as requirement_file:
-        return list(requirement_file.readlines())
+        return requirement_file.readlines().remove("-e .")
 
     
 
 
 
-# def find_packages()
 
 setup(
     name=PROJECT_NAME,
     version= VERSION,
     author = AUTHOR,
     description=DESCRIPTION,
-    packages=  PACKAGES ,
+    packages=  find_packages() ,
     install_requires= get_requirements_list()
 )
 
