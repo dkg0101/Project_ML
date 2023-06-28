@@ -6,7 +6,7 @@ VERSION ='0.0.3'
 AUTHOR = 'Dhananjay Gurav'
 DESCRIPTION = 'First end to end ml project with deployments'
 PACKAGES = ["housing"]
-REQUIREMENT_FILE_NAME = "/config/workspace/requirements.txt"
+REQUIREMENT_FILE_NAME = "requirements.txt"
 
 
 def get_requirements_list():
