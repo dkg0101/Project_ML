@@ -2,7 +2,7 @@ import os,sys
 from datetime import datetime
 
 
-ROOT_DIR = os.getcwd()
+ROOT_DIR = 'F:\\MachineLearningProject\\Project_ML' #os.getcwd()
 
 CONFIG_DIR_NAME = "config"
 CONFIG_FILE_NAME = "config.yaml"

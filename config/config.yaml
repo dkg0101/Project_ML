@@ -3,7 +3,7 @@ training_pipeline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  dataset_download_url : https://github.com/ageron/handson-ml/blob/master/datasets/housing/housing.csv
+  dataset_download_url : https://github.com/aniyant/machine-learning-project/blob/main/housing/artifact/data_ingestion/2022-07-09-21-47-54/raw_data/housing.csv
   raw_data_dir: raw_data
   ingested_dir: ingested_data
   ingested_train_dir: train
