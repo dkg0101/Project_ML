@@ -30,6 +30,8 @@ class DataIngestion:
             if os.path.exists(raw_data_dir):
                 os.remove(raw_data_dir)
 
+            
+
             os.makedirs(raw_data_dir,exist_ok=True)
             logging.info("raw data folder created...")
 
@@ -60,7 +62,7 @@ class DataIngestion:
 
             file_name = os.listdir(raw_data_dir)[0]
 
-            housing_file_path = os.path.join(raw_data_dir,file_name)
+            housing_file_path = "F://MachineLearningProject//Project_ML//housing.csv" #os.path.join(raw_data_dir,file_name)
 
             logging.info(f"reading csv file; {housing_file_path}")
 

@@ -7,21 +7,25 @@ AUTHOR = 'Dhananjay Gurav'
 DESCRIPTION = 'First end to end ml project with deployments'
 PACKAGES = ["housing"]
 REQUIREMENT_FILE_NAME = "requirements.txt"
+HYPEN_E_DOT = '-e .'
 
-
-def get_requirements_list():
+def get_requirements_list()->List[str]:
     """
     Description: This function is going to return list of requirement
     mention in requirements.txt file 
     return this function is going to return a list which  contain name 
     of libraries mentioned in requirements.txt file
     """
-    
-    with open (REQUIREMENT_FILE_NAME,"r") as requirement_file:
-        return requirement_file.readlines().remove("-e .")
+    requirements=[]
+    with open(REQUIREMENT_FILE_NAME) as requirement_file:
+        requirements = requirement_file.readlines()
+        requirements=[req.replace('\n','') for req in requirements]
+        
+        if HYPEN_E_DOT in requirements:
+                requirements.remove(HYPEN_E_DOT)
 
-    
 
+    return requirements
 
 
 
