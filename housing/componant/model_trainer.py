@@ -40,6 +40,10 @@ class ModelTrainer:
             
             logging.info(f"Extracting model config file path")
             model_config_file_path = self.model_trainer_config.model_config_file_path
+
+            logging.info(f"Initializing Model factory class using model config file;{model_config_file_path}")
+            model_factory = ModelFactory(model_config_file_path=model_config_file_path)
+        
             
         except Exception as e:
             raise HousingException(e,sys) from e
@@ -52,9 +56,3 @@ class ModelTrainer:
 
 
 
-
-try:
-    pass
-
-except Exception as e:
-        raise HousingException(e,sys) from e
