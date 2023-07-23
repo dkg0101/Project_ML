@@ -40,6 +40,7 @@ MetricInfoArtifact = namedtuple("MetricInfoArtifact",
                                 ["model_name","model_object","train_rmse","test_rmse","train_accuracy",
                                  "test_accuracy","model_accuracy","index_number"])
 
+#Model object is tained model object and model accuracy means average of training and testing accuracy
 def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.ndarray, X_test:np.ndarray, y_test:np.ndarray, base_accuracy:float=0.6) -> MetricInfoArtifact:
     """
     Description:
@@ -187,7 +188,7 @@ class ModelFactory:
 
     def get_initialised_model_list(self)->List[InitializedModelDetail] :
         """
-        This function will return a list of model details.
+        This function will return a list of tupels(model details).
         return List[ModelDetail]
         """   
         try:
@@ -303,9 +304,9 @@ class ModelFactory:
         
 
     def perform_best_parameter_search_for_initialized_models(self,
-                                                             initialized_model_list:List(InitializedModelDetail),
+                                                             initialized_model_list:List[InitializedModelDetail],
                                                              input_feature,
-                                                             output_feature)->List(GridSearchedBestModel):
+                                                             output_feature)->List[GridSearchedBestModel]:
         """
         This function will perfom GridSearchCv Operation for each model in list of InitializedModelDetail
         and return the list of best models found after performing GridSearchCv
@@ -347,6 +348,9 @@ class ModelFactory:
     def get_best_model_from_grid_searched_best_model_list(grid_searched_best_model_list:List[GridSearchedBestModel],
                                                           base_accuracy =0.6
                                                           ):
+        """
+        This function will return best model based on trainig dataset with greater accuracy 
+        """
         try:
             best_model = None
             for grid_searched_best_model in grid_searched_best_model_list:

@@ -2,13 +2,13 @@ from housing.config.configuration import Configuration
 from housing.logger import logging
 from housing.exception import HousingException
 from housing.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact, \
-DataTransformationArtifact
+DataTransformationArtifact,ModelTrainerArtifact
 from housing.entity.config_entity import DataIngestionConfig
 import os,sys
 from housing.componant.data_ingestion import DataIngestion
 from housing.componant.data_validation import DataValidation
 from housing.componant.data_transformation import DataTransformation
-
+from housing.componant.model_trainer import ModelTrainer
 class Pipeline:
     def __init__(self,config:Configuration= Configuration()) -> None:
 
@@ -50,6 +50,15 @@ class Pipeline:
                                                     )
             
             data_transformation.initiate_data_transformation()
+
+        except Exception as e:
+            raise HousingException(e,sys) from e
+        
+    def start_model_trainer(self,data_transformation_artifact:DataTransformationArtifact)->ModelTrainerArtifact:
+        try:
+            model_trainer =ModelTrainer(model_trainer_config=self.config.get_model_trainer_config(),
+                                        data_transformation_artifact=data_transformation_artifact)
+            return model_trainer.intiate_model_trainer()
 
         except Exception as e:
             raise HousingException(e,sys) from e
