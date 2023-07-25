@@ -179,7 +179,7 @@ class DataTransformation:
 
             train_arr = np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
 
-            test_arr = np.c_[input_feature_test_arr,np.array(input_feature_test_df)]
+            test_arr = np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
             
             transformed_train_dir = self.data_transformation_config.transformed_train_dir
             transformed_test_dir = self.data_transformation_config.transformed_test_dir

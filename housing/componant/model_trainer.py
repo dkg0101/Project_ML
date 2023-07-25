@@ -49,6 +49,8 @@ class ModelTrainer:
             self.model_trainer_config = model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact
 
+
+
         except Exception as e:
             raise HousingException(e,sys) from e
         
@@ -71,7 +73,7 @@ class ModelTrainer:
             model_config_file_path = self.model_trainer_config.model_config_file_path
 
             logging.info(f"Initializing Model factory class using model config file;{model_config_file_path}")
-            model_factory = ModelFactory(model_config_file_path=model_config_file_path)
+            model_factory = ModelFactory(model_config_path=model_config_file_path)
 
 
             base_accuracy = self.model_trainer_config.base_accuracy
@@ -87,7 +89,7 @@ class ModelTrainer:
 
             model_list = [model.best_model for model in grid_searched_best_model_list]
             logging.info(f"Evaluation all trained model on training and testing dataset both")
-            metric_info_artifact:MetricInfoArtifact = evaluate_regression_model(model_list=model_list,X_train=x_train,X_test=x_test,y_test=y_test,base_accuracy=base_accuracy)
+            metric_info_artifact:MetricInfoArtifact = evaluate_regression_model(model_list=model_list,X_train=x_train,X_test=x_test,y_train=y_train,y_test=y_test,base_accuracy=base_accuracy)
             
             logging.info(f"Best Model found on both training and testing dataset")
 

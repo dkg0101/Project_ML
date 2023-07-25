@@ -26,13 +26,13 @@ model_selection:
       - 4
       - 6
       n_estimators:
+      - 80
       - 100
-      - 150
       max_depth:
       - 3
       - 5
-      - 7
-      - 9
+      
+      
 
 
     

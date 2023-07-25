@@ -114,6 +114,8 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
             index_number += 1
         if metric_info_artifact is None:
             logging.info(f"No model found with higher accuracy than base accuracy")
+        
+        logging.info(f"Metric Info Artifact is: {metric_info_artifact}")
         return metric_info_artifact
     except Exception as e:
         raise HousingException(e, sys) from e
@@ -229,6 +231,7 @@ class ModelFactory:
             logging.info(f"The initialised model details are: [{initialized_model_list}]")
 
             return self.initialized_model_list
+        
         except Exception as e:
              raise HousingException(e,sys) from e
         
@@ -317,8 +320,7 @@ class ModelFactory:
                   grid_searched_best_model = self.perform_best_parameter_search_for_initialized_model(
                        initialized_model=initialized_model_list,
                        input_feature=input_feature,
-                       output_feature=output_feature
-                  )
+                       output_feature=output_feature)
 
                   logging.info(f"adding {grid_searched_best_model} into grid_searched_best_model_list")
                   self.grid_searched_best_model_list.append(grid_searched_best_model)
@@ -374,7 +376,7 @@ class ModelFactory:
     def get_best_model(self,X,y,base_accuracy=0.6) -> BestModel:
         try:
              logging.info("Started Initializing model from config file")
-             initialized_model_list = self.get_initialised_model_list
+             initialized_model_list = self.get_initialised_model_list()
              logging.info(f"Initialized model: {initialized_model_list}")
              grid_searched_best_model_list = self.perform_best_parameter_search_for_initialized_models(
                 initialized_model_list=initialized_model_list,

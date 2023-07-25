@@ -52,7 +52,7 @@ class ModelEvaluation:
 
     def update_evaluation_report(self, model_evaluation_artifact: ModelEvaluationArtifact):
         try:
-            eval_file_path = self.model_evaluation_config.model_evaluation_file_path
+            eval_file_path = self.model_evaluation_config.model_evaluaion_file_path
             model_eval_content = read_yaml_file(file_path=eval_file_path)
             model_eval_content = dict() if model_eval_content is None else model_eval_content
             

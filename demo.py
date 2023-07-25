@@ -1,24 +1,23 @@
 from housing.pipeline.pipeline import Pipeline
 from housing.exception import HousingException
-from housing.logger import logging 
+from housing.logger import logging
 from housing.config.configuration import Configuration
+from housing.componant.data_transformation import DataTransformation
+import os
 
 
 def main():
     try:
-        # pipeline = Pipeline()
+        pipeline = Pipeline()
         # pipeline.run_pipeline()
-        # data_validation_config = Configuration().get_data_validation_config()
-        # print(data_validation_config)
-        # model_trainer_config = Configuration().get_model_trainer_config()
-        # print(model_trainer_config)
-        model_evaluation_config = Configuration().get_model_evaluation_config()
-        print(model_evaluation_config)
-
+        pipeline.start()
+        logging.info("main function execution completed.")
+       
     except Exception as e:
         logging.error(f"{e}")
         print(e)
-        
 
-if __name__ == "__main__":
-        main()
+
+
+if __name__=="__main__":
+    main()
