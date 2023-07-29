@@ -3,7 +3,7 @@ training_pipeline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  dataset_download_url : https://github.com/dkg0101/Dataset/blob/main/housing.csv
+  dataset_download_url : https://github.com/dkg0101/Dataset/blob/main/housing.csv  #https://raw.githubusercontent.com/dkg0101/Dataset/main/housing.csv
   raw_data_dir: raw_data
   ingested_dir: ingested_data
   ingested_train_dir: train
